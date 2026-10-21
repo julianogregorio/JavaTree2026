@@ -70,6 +70,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         if (raiz == null)
             return null; // Dado não encontrado na árvore
 
+        System.out.println("Comparando " + dadoBusca + " com " + raiz.dado);
         if (raiz.dado.equals(dadoBusca))
             return raiz.dado; // Dado encontrado
 
