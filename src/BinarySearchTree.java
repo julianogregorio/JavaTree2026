@@ -2,6 +2,10 @@
 public class BinarySearchTree<T extends Comparable<T>> {
     private Node<T> raiz;
 
+    public BinarySearchTree() {
+        this.raiz = null;
+    }
+
     private Node<T> add(Node<T> raiz, Node<T> novoNo) {
         if (raiz == null) {
             raiz = novoNo;
@@ -15,18 +19,16 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }// fim funcao inserir
 
     public void add(T dado) {
-        Node<T> node = new Node<>(dado);
-        this.raiz = add(raiz, node);
+        Node<T> novoNo = new Node<>(dado);
+        this.raiz = add(raiz, novoNo);
     }
 
     private void preOrder(Node<T> raiz) {
-        if (raiz == null) {
-            return;
+        if (raiz != null) {
+            System.out.print(raiz.dado + " ");
+            preOrder(raiz.esquerda);
+            preOrder(raiz.direita);
         }
-
-        System.out.print(raiz.dado + " ");
-        preOrder(raiz.esquerda);
-        preOrder(raiz.direita);
     }
 
     public void preOrder() {
